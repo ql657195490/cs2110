@@ -1,0 +1,42 @@
+===============================================================================
+CS2110                              Lab 23                            Fall 2015
+===============================================================================
+
+Objective: Use qsort to sort arrays, and using function pointers
+ 
+This is a lab where you will use qsort to sort an array of elements in
+different ways.
+
+
+
+Assignment
+----------
+In the provided sort.c file, edit it where necessary to sort the array
+appropriately. Use qsort from stdlib.h to accomplish this.
+
+To build the application and run it:
+
+make
+./sort
+
+
+
+Hints
+-----
+Use the man pages to see how qsort is used!
+Use the man pages to see how qsort is used!
+Use the man pages to see how qsort is used!
+Use the man pages to see how qsort is used!
+Use the man pages to see how qsort is used!
+
+The second way you should sort the elements is alphabetically. You don't have
+to write low level string comparison code to accomplish this because there's
+already a function in string.h that can compare strings. It is reccommended
+that you use that function in your implementation of this lab.
+
+Submission Instructions
+-----------------------
+Please submit the following file on T-Sqaure:
+
+sort.c
+

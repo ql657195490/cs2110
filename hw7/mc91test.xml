@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<test-suite>
+    <!-- Test case you may have multiple of these --> 
+    <test-case> 
+        <name>mc91(101)</name>
+        <!-- This flag determines if the test has a time limit in number of instructions default is 0 (false). Best practice is to always use this. --> 
+        <has-max-executions>1</has-max-executions>
+        <!-- The maximum number of instructions to run for.  Only works if the above flag for has-max-executions is 1 (true) --> 
+        <max-executions>1000000</max-executions>
+        <!-- Randomize memory before the test default is 0 (false)--> 
+        <randomize>1</randomize>
+        <!-- Specify the inputs to your assembly code here --> 
+        <input>
+	    <!-- Parameter setting change N to be 101 -->
+            <test-value><address>N</address><value>101</value></test-value>
+            <!-- Prepare to call subroutine MC91 the following shall happen -->
+            <!-- Set the Stack pointer R6 to xF000 -->
+            <!-- Set the Return address R7 to x5000, A halt statement shall be placed here as well -->
+            <!-- Set the Frame pointer R5 to be some value, after your code is finished running R5 better be the same value. -->
+            <!-- Parameters will be loaded in the stack as specified in the calling convention and R6 shall point to the first parameter -->
+            <test-subr><name>MC91</name><stack>xF000</stack><r7>x5000</r7><r5>xCAFE</r5><params>MEM[N]</params></test-subr>
+        </input>
+        <!-- Specify things you want to verify here -->
+        <output>
+            <!-- Answer is 91, no local variables-->
+            <!-- The following checks are made -->
+            <!-- R6 should be pointing at xEFFE (initial stack - num_params - 1) -->
+            <!-- xEFFE must contain the answer 91 -->
+            <!-- PC must be pointing at the return address specified above (x5000) -->
+            <!-- R5 must contain the old frame pointer value specified above (xCAFE) -->
+            <!-- Parameter 101 must not be modified and should still be located at xEFFF -->
+            <!-- Return address x5000 should be located at xEFFD -->
+            <!-- Old frame pointer xCAFE should be located at xEFFC -->
+            <test-subr>
+                <answer>91</answer>
+                <!-- No local variables, so not including a locals tag -->
+                <!-- Ignore this section unless you are a TA -->
+                <points>
+                    <answer>1</answer>
+                    <params>1</params>
+                    <r7>1</r7>
+                    <r6>1</r6>
+                    <r5>1</r5>
+                    <locals>1</locals>
+                </points>
+                <deductions-per-mistake>1</deductions-per-mistake>
+            </test-subr>
+        </output>
+    </test-case>
+</test-suite>

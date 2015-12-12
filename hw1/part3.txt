@@ -1,0 +1,5 @@
+Hongrui Zheng
+
+1) The purpose of the splitter is to split the multiple bits input and route different bits in different directions. Yes it can be used to join wires.
+2) They are useful because they can be thought of as invisible wires to tidy up the circuit created.
+3) 0  1

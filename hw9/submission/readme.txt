@@ -1,0 +1,1 @@
+You are the cyan square, avoid the enemy green squares, eat all the white food squares and try to get to the red square.

@@ -1,0 +1,67 @@
+=============================================================================
+CS2110                            Lab #22                           Fall 2015
+=============================================================================
+
+Don't hesitate to ask the TA's for help. If you are stuck on
+one part, or not clear about what it's asking, feel free to
+ask. Remember, we are here to help you :)
+
+This is not a timed lab so talk with your friends, use the book, etc.
+
+
+
+Program
+=======
+
+For this lab you will be completing a program that takes in several numbers
+from the user, then outputs their average. The numbers are separated by spaces,
+and they stop when the user presses enter.
+
+make avg
+23 91 46 455 5
+Average: 124
+
+The general structure for main, as well as the function to read numbers from
+the console have already been written for you.
+
+
+
+Problem
+=======
+
+Your job is to write that code the handles dynamically resizing the array that
+holds the numbers the user is typing. You may NOT use realloc for this.
+
+See the man pages for:
+    malloc
+    free
+    memcpy
+
+
+
+Testing
+=======
+
+Your implementation shouldn't have any memory leaks. To check this, first
+install valgrind if you haven't already done so:
+
+    sudo apt-get install valgrind
+
+Then run the "val" target in the given Makefile:
+
+    make val
+
+It should say "All heap blocks were freed -- no leaks are possible", otherwise
+you have a memory leak which means you malloc'd, but didn't free it before you
+returned from main.
+
+
+
+Submission
+==========
+
+Show the output of "make val" to a TA, and let them try some sequence of
+numbers. The average should be correct, and there should be no memory leaks.
+
+Submit average.c to T-Square.
+

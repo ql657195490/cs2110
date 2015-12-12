@@ -1,0 +1,29 @@
+Function #0: check_malloc_1_size SEGFAULTED/TIMED_OUT
+SUB: (-2) check_malloc_1_addr: the in_use field of the metadata was not set to 1 when returned;
+SUB: (-2) check_malloc_1_addr: the block of data was not malloced to the proper size;
+SUB: (-6) check_malloc_1_addr: the freelist is not what it should be, which will throw off everything else in your library;
+Function #1: check_malloc_1_addr SEGFAULTED/TIMED_OUT
+Function #2: check_malloc_2_size SEGFAULTED/TIMED_OUT
+Function #3: check_malloc_2_addr SEGFAULTED/TIMED_OUT
+Function #4: check_malloc_3_size SEGFAULTED/TIMED_OUT
+Function #5: check_malloc_3_addr SEGFAULTED/TIMED_OUT
+Function #6: check_free_1_size SEGFAULTED/TIMED_OUT
+Function #7: check_free_1_addr SEGFAULTED/TIMED_OUT
+Function #8: check_free_2_size SEGFAULTED/TIMED_OUT
+Function #9: check_free_2_addr SEGFAULTED/TIMED_OUT
+Function #10: check_free_3_size SEGFAULTED/TIMED_OUT
+Function #11: check_free_3_addr SEGFAULTED/TIMED_OUT
+Function #12: check_free_4_size SEGFAULTED/TIMED_OUT
+Function #13: check_free_4_addr SEGFAULTED/TIMED_OUT
+Function #14: check_free_5_size SEGFAULTED/TIMED_OUT
+Function #15: check_free_5_addr SEGFAULTED/TIMED_OUT
+Function #16: check_EC_1_size SEGFAULTED/TIMED_OUT
+Function #18: check_EC_2_size SEGFAULTED/TIMED_OUT
+Function #19: check_EC_2_addr SEGFAULTED/TIMED_OUT
+Function #20: check_EC_3_size SEGFAULTED/TIMED_OUT
+Function #21: check_EC_3_addr SEGFAULTED/TIMED_OUT
+
+Score: 6/100 points
+Any difference between points lost and points gained is due to functions segfaulting/timeing out before points can be deducted,
+in which case those points are still lost by not adding them.
+~Nathan

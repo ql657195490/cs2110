@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<test-suite>
+    <!-- Test case you may have multiple of these --> 
+    <test-case> 
+        <name>binary_search([-45,-42,-30,-2,6,15,16,28,51,78,99,178,200,299,491,5103], 99) == 10</name>
+        <!-- This flag determines if the test has a time limit in number of instructions default is 0 (false). Best practice is to always use this. --> 
+        <has-max-executions>1</has-max-executions>
+        <!-- The maximum number of instructions to run for.  Only works if the above flag for has-max-executions is 1 (true) --> 
+        <max-executions>1000000</max-executions>
+        <!-- Randomize memory before the test default is 0 (false)--> 
+        <randomize>0</randomize>
+        <!-- Specify the inputs to your assembly code here --> 
+        <input>
+            <!-- An array the address is treated to contain an address.  The contents starting at that address will sequentially be replaced by the values in the array -->
+            <!-- here MEM[MEM[ARR_PTR] + 0] = 2, MEM[MEM[ARR_PTR] + 1] = 5, and so on -->
+            <!-- replace ARRAY with the name of the symbol being used as the address of the array -->
+            <test-array><address>ARR_PTR</address><value>-45,-42,-30,-2,6,15,16,28,51,78,99,178,200,299,491,5103</value></test-array>
+            <test-value><address>ARR_LEN</address><value>15</value></test-value>
+            <test-value><address>X</address><value>99</value></test-value>
+            <!-- This will only satisfy the preconditions of the calling convention -->
+            <!-- The stack pointer will point to the first parameter and the parameters are loaded onto the stack -->
+            <!-- Code will begin executing at the subroutine tested, none of the code in "MAIN" is executed -->
+            <!-- R5, R7 are loaded with dummy values do not clobber them -->
+            <!-- When the subroutine stops execution stops and the output is checked -->
+            <test-subr><name>BSEARCH</name><stack>xF000</stack><r7>x5000</r7><r5>xCAFE</r5><params>MEM[ARR_PTR],0,MEM[ARR_LEN],MEM[X]</params></test-subr>
+        </input>
+        <!-- Specify things you want to verify here -->
+        <output>
+            <!-- Answer is 10, local variable 7 should be stored on stack. -->
+            <test-subr>
+                <answer>10</answer>
+                <locals>7</locals>
+                <points>
+                    <answer>1</answer>
+                    <params>1</params>
+                    <r7>1</r7>
+                    <r6>1</r6>
+                    <r5>1</r5>
+                    <locals>1</locals>
+                </points>
+                <deductions-per-mistake>1</deductions-per-mistake>
+            </test-subr>
+        </output>
+    </test-case>
+</test-suite>
